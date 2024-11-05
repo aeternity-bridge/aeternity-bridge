@@ -1,0 +1,9 @@
+k8s
+node_modules
+*.env
+cache
+artifacts
+typechain-types
+.DS_Store
+.openzeppelin
+.vscode

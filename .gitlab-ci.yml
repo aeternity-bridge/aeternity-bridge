@@ -1,0 +1,108 @@
+include:
+  - project: "papers/papers-internal/internal"
+    file: "/.base-gitlab-ci.yml"
+
+variables:
+  NAMESPACE: ae-bridge
+  PROJECT_NAME: ae-bridge-frontend
+
+stages:
+  - build
+  - publish
+  - deploy
+
+.base_build:
+  script:
+    - docker build --build-arg NETWORK=$NETWORK --build-arg RUN_ENV=$CI_ENVIRONMENT_NAME -t $GOOGLE_TAG-$CI_ENVIRONMENT_NAME .
+
+build-dev:
+  stage: build
+  script:
+    - !reference [.base_build, script]
+  variables:
+    NETWORK: sepolia
+  environment:
+    name: development
+
+build-prod:
+  stage: build
+  script:
+    - !reference [.base_build, script]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  variables:
+    NETWORK: mainnet
+  environment:
+    name: production
+
+.base_publish:
+  script:
+    - docker tag $GOOGLE_TAG-$CI_ENVIRONMENT_NAME $TAG-$CI_ENVIRONMENT_NAME
+    - docker tag $GOOGLE_TAG-$CI_ENVIRONMENT_NAME $TAG_LATEST-$CI_ENVIRONMENT_NAME
+    - docker push $TAG-$CI_ENVIRONMENT_NAME
+    - docker push $TAG_LATEST-$CI_ENVIRONMENT_NAME
+
+publish-dev:
+  stage: publish
+  needs: ["build-dev"]
+  extends: .publish-dev
+  variables:
+    TAG: $GOOGLE_TAG_DEV
+    TAG_LATEST: $GOOGLE_TAG_LATEST_DEV
+  script:
+    - !reference [.base_publish, script]
+  environment:
+    name: development
+    action: prepare
+
+publish-prod:
+  stage: publish
+  needs: ["build-prod"]
+  extends: .publish-prod
+  variables:
+    TAG: $GOOGLE_TAG
+    TAG_LATEST: $GOOGLE_TAG_LATEST
+  script:
+    - !reference [.base_publish, script]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  environment:
+    name: production
+    action: prepare
+
+.base_deployment:
+  script:
+    - find k8s -type f -name \*.yaml -exec sed -i "s|__NAMESPACE_NAME__|"$NAMESPACE"|g" {} +
+    - find k8s -type f -name \*.yaml -exec sed -i "s|__PROJECT_NAME__|"$PROJECT_NAME"|g" {} +
+    - find k8s -type f -name \*.yaml -exec sed -i "s|__TO_BE_REPLACED_BY_IMAGE_TAG__|"$IMAGE_TAG-$CI_ENVIRONMENT_NAME"|g" {} +
+
+    # ensure namespace is applied before the other kubernetes entities
+    - kubectl apply -f k8s/common/namespace.yaml
+    - kubectl apply -f k8s/$CI_ENVIRONMENT_NAME/ --recursive
+    - kubectl apply -f k8s/common/ --recursive
+
+deploy-dev:
+  stage: deploy
+  when: manual
+  needs: ["publish-dev"]
+  extends: .run_dev
+  variables:
+    IMAGE_TAG: $GOOGLE_TAG_DEV
+  script:
+    - !reference [.base_deployment, script]
+  environment:
+    name: development
+
+deploy-prod:
+  stage: deploy
+  when: manual
+  needs: ["publish-prod"]
+  extends: .run_prod
+  variables:
+    IMAGE_TAG: $GOOGLE_TAG
+  script:
+    - !reference [.base_deployment, script]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  environment:
+    name: production

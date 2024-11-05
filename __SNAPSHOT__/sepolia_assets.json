@@ -1,0 +1,18 @@
+{
+    "USDT": {
+        "aeternity": "ct_xyAN3ftqE8GTcwu4hB3PK1e4oKN8oCa2APwcF4uWFoJaMVeAT",
+        "ethereum": "0x3775247c9feDf79d4dFD2ccd5586e2b988227717"
+    },
+    "BNB": {
+        "aeternity": "ct_VJSzg4UsY3uBZgYo4rWJr3MqNZYof1ZNGe8p93wBxLcKsESPp",
+        "ethereum": "0x92b204d83E2AD7cacA1852A24861DD2498973f95"
+    },
+    "WAE": {
+        "aeternity": "ct_2vaz4qhzYTaUYd4ViLDWm4QCBsNrP1VRkwoYxw9E7Ncei3Qo6c",
+        "ethereum": "0x75730C805B6f74166b650EBa42f59EfFFfEf8a31"
+    },
+    "ETH": {
+        "aeternity": "ct_CXDwEqM3FrF21Npp7g6rJ9eNqqVuPDKvDwMqNUgSMTCMG8U5Q",
+        "ethereum": "0xdD08E5d47C1f880829584EdE3DCA734E6E1Deb0E"
+    }
+}

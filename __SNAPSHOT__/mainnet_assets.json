@@ -1,0 +1,410 @@
+{
+    "WAE": {
+        "aeternity": "ct_o5iyqeZyiKep7srn43fLFjwJ7QyDH8dD2M3RFB5PCWgiQEPqq",
+        "ethereum": "0xCa781A1779c8f363f7F82BF6f4B406e5d54bAE1F"
+    },
+    "ETH": {
+        "aeternity": "ct_ryTY1mxqjCjq1yBn9i6HDaCSdA6thXUFZTA84EMzbWd1SLKdh",
+        "ethereum": "0xAbaE76F98A84D1DC3E0af8ed68465631165d33B2"
+    },
+    "USDT": {
+        "aeternity": "ct_2AiMceYFXnUdA6A9Lu2ZQ2tr2TpfbGVfkxLfBnceoWgHTKZYvc",
+        "ethereum": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    },
+    "BNB": {
+        "aeternity": "ct_2F2CqmpKbLntqLWpvtq5cBw1Jcbbef7eEV7uMrWxvg6AZtwL5X",
+        "ethereum": "0xB8c77482e45F1F44dE1745F52C74426C631bDD52"
+    },
+    "USDC": {
+        "aeternity": "ct_U1i8dzJTVWdnU2cv59TZQfLFpLfjqf7MQQC5ygSMKphn8Yew2",
+        "ethereum": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    "stETH": {
+        "aeternity": "ct_2fUhBfvgs7atqeqxFicPwXtMAX7axbLtxGbpKBv5R5ViQuDj1J",
+        "ethereum": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"
+    },
+    "TRX": {
+        "aeternity": "ct_qw2zBmsMEbCfmTW3M7wLCn2KvLBvJx6qX1EeZZFEkixU2PpTT",
+        "ethereum": "0x50327c6c5a14dcade707abad2e27eb517df87ab5"
+    },
+    "LINK": {
+        "aeternity": "ct_9zroKcDhgUziBG8mqng9n8GJZiGEDSe6mN8JZyBdKQttXfR99",
+        "ethereum": "0x514910771af9ca656af840dff83e8264ecf986ca"
+    },
+    "TONCOIN": {
+        "aeternity": "ct_2kuWB94Yb3gBvjcUSZ7YMheGGfATwsCzKmwdVrUbUwTik5452v",
+        "ethereum": "0x582d872a1b094fc48f5de31d3b73f2d9be47def1"
+    },
+    "WBTC": {
+        "aeternity": "ct_26Q5MYFKE4z4GaYLmhZiZ9AHsSVqVNZiiyzySSHTorWyr4od4K",
+        "ethereum": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+    },
+    "SHIB": {
+        "aeternity": "ct_2Q2PLjWPPJdNy4vSV1UeSB3hEHrqug4XaJCb9fvWo4rX4z3CvM",
+        "ethereum": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE"
+    },
+    "DAI": {
+        "aeternity": "ct_LHrNcD6aEDTiUBWZwHn3yCKc7fnFL95y132GdvH9nCUavzyfc",
+        "ethereum": "0x6b175474e89094c44da98b954eedeac495271d0f"
+    },
+    "UNI": {
+        "aeternity": "ct_Vi14D3uAMnSnsoB3u9PiZt2Hv82bMjUMVD7e97ZF4wvrqCpAF",
+        "ethereum": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+    },
+    "LEO": {
+        "aeternity": "ct_2ukBazfUKaj6sNTCVCznCmpFnex4eQDRAsdmdNHjULqTiDTCrT",
+        "ethereum": "0x2af5d2ad76741191d15dfe7bf6ac92d4bd912ca3"
+    },
+    "INJ": {
+        "aeternity": "ct_VJJKHHNhxWiPrZRunjs3inY8tFiyW2PWBwF1cazmmJ6fomSVX",
+        "ethereum": "0xe28b3B32B6c345A34Ff64674606124Dd5Aceca30"
+    },
+    "NEAR": {
+        "aeternity": "ct_2bmSSH7M6LWmNXkBwjGL4Z5F1cYRaLQ7HwTLpuSfvivZANLVNQ",
+        "ethereum": "0x85f17cf997934a597031b2e18a9ab6ebd4b9f6a4"
+    },
+    "OKB": {
+        "aeternity": "ct_21T9r7WsZuTuM8VvxmL53ZhUKZEq5qLFw1Efh41cBCxyWcLssz",
+        "ethereum": "0x75231f58b43240c9718dd58b4967c5114342a86c"
+    },
+    "LDO": {
+        "aeternity": "ct_kvq6h2VYTbGFUtBBqkL1xNdDL7ekzc4yTswqEyp9K3T57R8ou",
+        "ethereum": "0x5a98fcbea516cf06857215779fd812ca3bef1b32"
+    },
+    "IMX": {
+        "aeternity": "ct_stdGnhczkGLQJbqfAvqyBJUmzbphQKzWv6rpRSYBUEsuntPs6",
+        "ethereum": "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff"
+    },
+    "CRO": {
+        "aeternity": "ct_fBb6CfDBt5r2oQacs36u9pTb5RKUqrCNLEQ9azRkSUUue4rhx",
+        "ethereum": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b"
+    },
+    "ARB": {
+        "aeternity": "ct_2GzgKTU6MhFchBBaiUZDEeVtPgkUjdcVy4u6HV95jHo2hTxm82",
+        "ethereum": "0xB50721BCf8d664c30412Cfbc6cf7a15145234ad1"
+    },
+    "VEN": {
+        "aeternity": "ct_2p4UJobHCGwwHk8iwayMVkrcGMvLCWF4KPHNRTbGHtbfm43vrL",
+        "ethereum": "0xd850942ef8811f2a866692a623011bde52a462c1"
+    },
+    "TUSD": {
+        "aeternity": "ct_2Cm6gpFNnAcdivSscuDLGiSr3GYpB3XJaR6C7v69zJZ7vqMM4m",
+        "ethereum": "0x0000000000085d4780B73119b644AE5ecd22b376"
+    },
+    "MNT": {
+        "aeternity": "ct_2uZwiuGvHRnKtbJR9avf9o4XY5WnpjDDXUWzj4a8nFfqkaa9R5",
+        "ethereum": "0x3c3a81e81dc49a522a592e7622a7e711c06bf354"
+    },
+    "QNT": {
+        "aeternity": "ct_2Dt6HcmfCJEaxqHZokw1pYNUozzZnmfRSzCxzZG7Kvby7MR3kQ",
+        "ethereum": "0x4a220e6096b25eadb88358cb44068a3248254675"
+    },
+    "MKR": {
+        "aeternity": "ct_kW42LfDhTjKyEnT9fgXVrS2PQNEByevrx3SnhVApqR7pnjo5a",
+        "ethereum": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
+    },
+    "GRT": {
+        "aeternity": "ct_cxdkcQked9AH2oZLPiPjd9P2RuB5uhCkkh7CyGZNQsyXiYp7D",
+        "ethereum": "0xc944e90c64b2c07662a292be6244bdf05cda44a7"
+    },
+    "stkAAVE": {
+        "aeternity": "ct_qdbn4mU9BW1b1gGwo2KPBPuUDjnh4cGRNC25uwS5FEAVdqGKJ",
+        "ethereum": "0x4da27a545c0c5b758a6ba100e3a049001de870f5"
+    },
+    "RNDR": {
+        "aeternity": "ct_PZt8KGUcfToSNWoMPrLS4Fgt68avKYpzd44Am74GTJ5NqszWE",
+        "ethereum": "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24"
+    },
+    "rETH": {
+        "aeternity": "ct_2wiphy9CzMkzE8uCv84bQDAAQJGq3tzZn6KDH87EzpzPtWzSam",
+        "ethereum": "0xae78736cd615f374d3085123a210448e74fc6393"
+    },
+    "SNX": {
+        "aeternity": "ct_fVrux21Cw8ysJPqsCZkMoWUd28c2WJxBtusAy4jHoQbbvrYj8",
+        "ethereum": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+    },
+    "FTM": {
+        "aeternity": "ct_Y9VG7PPLvmxNYKzMM6M1XgMKz4eLw7LGts2ndU5kGh1fLHGr1",
+        "ethereum": "0x4e15361fd6b4bb609fa63c81a2be19d873717870"
+    },
+    "THETA": {
+        "aeternity": "ct_p13Wi5amRKBu1FKzRohddYEjUUPHermdtXwXR24f8W2mv7dQ",
+        "ethereum": "0x3883f5e181fccaf8410fa61e12b59bad963fb645"
+    },
+    "SAND": {
+        "aeternity": "ct_5Axqp46tQDfaj5ruyYH1ivb2m9nkP2BsBFv58YdJz4KJ7nQBN",
+        "ethereum": "0x3845badAde8e6dFF049820680d1F14bD3903a5d0"
+    },
+    "BTT": {
+        "aeternity": "ct_2ahjyvpU5Sn4ZhX63it2TbUQ9BC6g7VWV9jdguBEFunwMguPw4",
+        "ethereum": "0xc669928185dbce49d2230cc9b0979be6dc797957"
+    },
+    "KCS": {
+        "aeternity": "ct_CqGgJwMAJPjLeoFgwaGGAr4wVxe54byq6z644DkNnYbuMjEV1",
+        "ethereum": "0xf34960d9d60be18cc1d5afc1a6f012a723a28811"
+    },
+    "BUSD": {
+        "aeternity": "ct_2pKpF4mzPAWAXoghyRtMdohBekkAhPbpMCM9Kw3i5zXwDtcZEd",
+        "ethereum": "0x4fabb145d64652a948d72533023f6e7a623c7c53"
+    },
+    "BEAM": {
+        "aeternity": "ct_X5WwnYrBGdgMU3LTQV7p4toaC3LM5Ex4sojA9vCRFCBWF25KY",
+        "ethereum": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE"
+    },
+    "MANA": {
+        "aeternity": "ct_27vrYZoG8CeH21PaimF7mPpz6GDwrjZqTrrwEvLH7fe7pHSFdP",
+        "ethereum": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942"
+    },
+    "wMANA": {
+        "aeternity": "ct_BRxrAmmvbRYLicNCzyrqEnz73PQthpymvGC5oZQKmXhqfnZhU",
+        "ethereum": "0xfd09cf7cfffa9932e33668311c4777cb9db3c9be"
+    },
+    "HEX": {
+        "aeternity": "ct_n4nKVqDcooQUr4y9BmcdNJATXBLrwj92ceCUTQBH3nLqYEggU",
+        "ethereum": "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39"
+    },
+    "WOO": {
+        "aeternity": "ct_sY7fMfy6Z4UiUVPRWiDwun9ru4sWFM1Y9YYYQhE6paRgp2Gvd",
+        "ethereum": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b"
+    },
+    "USDD": {
+        "aeternity": "ct_2gUjb4T32qDX5Z7UdiNNFbVALkXFRfeY9j7yVwZwbwukL3cYKb",
+        "ethereum": "0x0C10bF8FcB7Bf5412187A595ab97a3609160b5c6"
+    },
+    "Cake": {
+        "aeternity": "ct_2VR1R24m2njvFF45KTNbshuBScPxAsdAKL67FbwaPDZUZNnBRZ",
+        "ethereum": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+    },
+    "frxETH": {
+        "aeternity": "ct_KFQexPPXXp45qz8jVXbEVcewY3sY9Fs3c8iS5XM2vVQfY5KJN",
+        "ethereum": "0x5e8422345238f34275888049021821e8e08caa1f"
+    },
+    "FET": {
+        "aeternity": "ct_QSZ4v3HSezoyBtRUpNKbsfS3Vk9X27k3AXarQAsn1oTKKKnZb",
+        "ethereum": "0xaea46A60368A7bD060eec7DF8CBa43b7EF41Ad85"
+    },
+    "DYDX": {
+        "aeternity": "ct_3NNQLoYu7UaSnghBKmrbu9QpuHgV3KMVNaw9SMNyrqdg26pG3",
+        "ethereum": "0x92d6c1e31e14520e676a687f0a93788b716beff5"
+    },
+    "CHZ": {
+        "aeternity": "ct_2MMDbk2cBFu8Kthskrn766LVVpxekcNpxBsRqzK5QJ7sP1P8D1",
+        "ethereum": "0x3506424f91fd33084466f402d5d97f05f8e3b4af"
+    },
+    "FRAX": {
+        "aeternity": "ct_zygByS99iGDtoVCEC3rPyYoNFXd2sGCMLt3vUPBMEyBN43bFb",
+        "ethereum": "0x853d955acef822db058eb8505911ed77f175b99e"
+    },
+    "AXL": {
+        "aeternity": "ct_2TrCSL6G7fxLvcEqJbmB1XQRRZywMMienPhWa4n22fdUgxUd2c",
+        "ethereum": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3"
+    },
+    "FXS": {
+        "aeternity": "ct_AcgK4zrxwbeiFy7EczHrBv5PP2gbhM23DEhP5GLzy6tBE4yZS",
+        "ethereum": "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0"
+    },
+    "GMT": {
+        "aeternity": "ct_2ThKhRXDhtmTVffHik4sqCBoXeLKaw656SKW1FWW2SVNfRjDfz",
+        "ethereum": "0xe3c408BD53c31C085a1746AF401A4042954ff740"
+    },
+    "RPL": {
+        "aeternity": "ct_6gbZAkHZ7PYoDvoxkL78F2kLsAUXrNgin96uRnFdi1PUXPf5n",
+        "ethereum": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+    },
+    "BLUR": {
+        "aeternity": "ct_i9dpn21UiCj6rJ7wSEcnXT2h31TrhohqVqv88hWuP5otLLZxE",
+        "ethereum": "0x5283d291dbcf85356a21ba090e6db59121208b44"
+    },
+    "NEXO": {
+        "aeternity": "ct_SW6R5NQsk4YEmTpzV4ivc3Hjtr1zuDZYJ13NymkdbRCJjnCK2",
+        "ethereum": "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206"
+    },
+    "ILV": {
+        "aeternity": "ct_2rX3XAFivgPFPphF8yxLG1TKdWJwAFJScfKVJfKokCRQRkY5gd",
+        "ethereum": "0x767fe9edc9e0df98e07454847909b5e959d7ca0e"
+    },
+    "APE": {
+        "aeternity": "ct_2sznvGpsi389ccUtAzqpKHrkdiNef4UDRt8EQoVQHHLSBGEzQV",
+        "ethereum": "0x4d224452801aced8b2f0aebe155379bb5d594381"
+    },
+    "XAUt": {
+        "aeternity": "ct_2mALMjnuRM7bQdxt9TbqeJNmvQYPjsfY6zG1J2YSFuwh6Ck5T",
+        "ethereum": "0x68749665ff8d2d112fa859aa293f07a622782f38"
+    },
+    "sfrxETH": {
+        "aeternity": "ct_2QHdrcbRAyJG7Fh7FRwdqiCY2EFviFuziVhMCH2iy5H18zMiFb",
+        "ethereum": "0xac3e018457b222d93114458476f3e3416abbe38f"
+    },
+    "GNO": {
+        "aeternity": "ct_2pYpUbToF3eUbkeQwPuQMqL5Aoc1ToYg59DjEcfDTpQX5hTSQA",
+        "ethereum": "0x6810e776880c02933d47db1b9fc05908e5386b96"
+    },
+    "PEPE": {
+        "aeternity": "ct_GuDXRX3PceZgdnR5tU31WNL9tudSJLCnKbU91UZqvd6o4vHcB",
+        "ethereum": "0x6982508145454ce325ddbe47a25d4ec3d2311933"
+    },
+    "1INCH": {
+        "aeternity": "ct_gqYbUPeNDJQQ4imL4VhLHtEfpm41AcnGBLEhBfFo4v4AzgjHZ",
+        "ethereum": "0x111111111117dc0aa78b770fa6a738034120c302"
+    },
+    "cbETH": {
+        "aeternity": "ct_2o7qn6TJtVULb4JiVTzz6xXDz7hx5KzDRtpn4tCiqdTxQnnuK1",
+        "ethereum": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704"
+    },
+    "cETH": {
+        "aeternity": "ct_93hCuXFbSBSFNa23iX7M1GaRFEwyynYF9Fe36kBeLFu2CbXWX",
+        "ethereum": "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5"
+    },
+    "Metis": {
+        "aeternity": "ct_kvvt1caDJi9nQXKzKTcczbcL66ZdP7kZt4oWDh1mabB8qEx8R",
+        "ethereum": "0x9e32b13ce7f2e80a01932b42553652e053d6ed8e"
+    },
+    "PAXG": {
+        "aeternity": "ct_2SnKtutw1vo31tTwMb69zKk8DqBF7uaGAUjkKXAq9QiZjcBsWc",
+        "ethereum": "0x45804880De22913dAFE09f4980848ECE6EcbAf78"
+    },
+    "RLB": {
+        "aeternity": "ct_NKrvnTQ26jE23UsGEzJJmBby52wLwjQJyNC7GAY5K4suse4ir",
+        "ethereum": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d"
+    },
+    "HBTC": {
+        "aeternity": "ct_gG5As1jQtiXvVzjkr4RRFhDnNnrUH1he19ZdqFTMr81bkyPYz",
+        "ethereum": "0x0316EB71485b0Ab14103307bf65a021042c6d380"
+    },
+    "NFT": {
+        "aeternity": "ct_2AbNjLGNhzq92uTUSL7MBdne6YJejbsSx2egAtERDy1wgb9Fp1",
+        "ethereum": "0x198d14f2ad9ce69e76ea330b374de4957c3f850a"
+    },
+    "ENS": {
+        "aeternity": "ct_YvciyNkkYhTv53dKGkVSRbscPYCZsfcSziuzrGbkXGAPSgAxg",
+        "ethereum": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+    },
+    "SKL": {
+        "aeternity": "ct_2FLRKiPfpLvuN3XDamw3XC6mhEQsdxST5MuADtDpe6ccdUWUQN",
+        "ethereum": "0x00c83aecc790e8a4453e5dd3b0b4b3680501a7a7"
+    },
+    "IOTX": {
+        "aeternity": "ct_9ZHTNN7shhQ16oHo7DywZydp3SokTMX6Z3cTHHPgjc3SnJw7b",
+        "ethereum": "0x6fb3e0a217407efff7ca062d46c26e5d60a14d69"
+    },
+    "HT": {
+        "aeternity": "ct_xM1Peaie94QazvobUCaZaaSCc7Ty2MJnckQQBLZZ9hzwyT928",
+        "ethereum": "0x6f259637dcd74c767781e37bc6133cd6a68aa161"
+    },
+    "Wormhole": {
+        "aeternity": "ct_Uxq35Hhuj7HgNhU3uuhuaQqUNmahTcyhcYD49NALrKnrSAssi",
+        "ethereum": "0x3294395e62f4eb6af3f1fcf89f5602d90fb3ef69"
+    },
+    "wCELO": {
+        "aeternity": "ct_2aXK3bRZ1Nqm3vuT1a8pKxAHS4ifAKRJBVbrNVk52PtwNnSNSE",
+        "ethereum": "0xe452e6ea2ddeb012e20db73bf5d3863a3ac8d77a"
+    },
+    "ELF": {
+        "aeternity": "ct_2XWEG8c5SZtU6uoUpCcHFyCRsvBTNrpJSDw1i7fDNzHFPUDzZU",
+        "ethereum": "0xbf2179859fc6d5bee9bf9158632dc51678a4100e"
+    },
+    "USDP": {
+        "aeternity": "ct_2p7uZRjv28RRgmYUwPSvMixTLPkBXDpZyqqZkHmPFxWKSkhVaP",
+        "ethereum": "0x8e870d67f660d95d5be530380d0ec0bd388289e1"
+    },
+    "ZIL": {
+        "aeternity": "ct_qee2aa5QGUgNjmmTZeH7v7gXeHtVNiBuMGtx21ijKdCiyxuQo",
+        "ethereum": "0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27"
+    },
+    "HOT": {
+        "aeternity": "ct_qwVmtxmh8pP1ECZcaMQQRtXgTBudTapznsBdzEowj3SeQpCaw",
+        "ethereum": "0x6c6ee5e31d828de241282b9606c8e98ea48526e2"
+    },
+    "BAT": {
+        "aeternity": "ct_mMevPPNpDrNgG9Adzpu6txofzKdJDqktNRWWYf4Wvqcp7hcUv",
+        "ethereum": "0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+    },
+    "COMP": {
+        "aeternity": "ct_2YoWXi3ctD9T8vpFCxfDDfC5wZk1nVM9ME36YTrp1iLK6WPrqn",
+        "ethereum": "0xc00e94cb662c3520282e6f5717214004a7f26888"
+    },
+    "AGIX": {
+        "aeternity": "ct_3SsfhWUgSKWo8Ewsz2YEq5XQfPefEh5pCUDiYoyuS474HYcWE",
+        "ethereum": "0x5b7533812759b45c2b44c19e320ba2cd2681b542"
+    },
+    "TRB": {
+        "aeternity": "ct_2kFvRekTv8XHCvCZDttnaV47GMh9eh9X34PTTJkaqUX9KaX7ho",
+        "ethereum": "0x88df592f8eb5d7bd38bfef7deb0fbc02cf3778a0"
+    },
+    "WQTUM": {
+        "aeternity": "ct_WL3oCGqeTtbti2VBhrJu5Ho1x3u2GQC3qoFkvGv3LU8Ux5Wno",
+        "ethereum": "0x3103df8f05c4d8af16fd22ae63e406b97fec6938"
+    },
+    "MASK": {
+        "aeternity": "ct_YSY8vGaXk3vzkiouWUKa4nYyF62ZTVKn4ZVGstLKgo8ufH2fn",
+        "ethereum": "0x69af81e73a73b40adf4f3d4223cd9b1ece623074"
+    },
+    "LRC": {
+        "aeternity": "ct_Bz2oRsfW31VRKfVaaVC2bneEpUx4QFegdpn87T4wxC2QWqHhk",
+        "ethereum": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd"
+    },
+    "WLD": {
+        "aeternity": "ct_oxUyyVB9KUpQR4ZututG621VGsfDiC65wsy7rofJ1mysjqh2p",
+        "ethereum": "0x163f8c2467924be0ae7b5347228cabf260318753"
+    },
+    "ENJ": {
+        "aeternity": "ct_ECFqfRPtLQc7puRdC4j3DeNHUJYRBVFMyLbfcK9LbpXVQ7jL2",
+        "ethereum": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c"
+    },
+    "FLOKI": {
+        "aeternity": "ct_ipVoUj1caYRxfES4YzUsMQsk9nrK8i6Afr77T38ctyXXSzTwK",
+        "ethereum": "0xcf0c122c6b73ff809c693db761e7baebe62b6a2e"
+    },
+    "SFP": {
+        "aeternity": "ct_TUddgWPeMe1NfXCEHX5PfTko23vAMvzvhy17U5pkLtAcLaucx",
+        "ethereum": "0x12e2b8033420270db2f3b328e32370cb5b2ca134"
+    },
+    "RBN": {
+        "aeternity": "ct_2TE6vbKs4jvYopwEnRyRt2bnJtBByhTZKWRcf5unorf8hESmCL",
+        "ethereum": "0x6123b0049f904d730db3c36a31167d9d4121fa6b"
+    },
+    "CVX": {
+        "aeternity": "ct_Q3LSxg8yqhHyydDWcA1FrgHQMzTpBXgbTNZ2R53ntmnUwSdEf",
+        "ethereum": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b"
+    },
+    "MX": {
+        "aeternity": "ct_qFYcBSK8NoP2q9schqEKdcMTWN29HKUffTWW8tHLrukfHnsFc",
+        "ethereum": "0x11eef04c884e24d9b7b4760e7476d06ddf797f36"
+    },
+    "ZRX": {
+        "aeternity": "ct_22VEUzxrzCneonrudx9MENcAvaQe5C682Hc6WUhBtRR4g48aWD",
+        "ethereum": "0xe41d2489571d322189246dafa5ebde1f4699f498"
+    },
+    "PRIME": {
+        "aeternity": "ct_2AWivSjqAYWGg64TDM6LgWDT3cXoQLxJFGkrWq6fbeqL7fRjdr",
+        "ethereum": "0xb23d80f5fefcddaa212212f028021b41ded428cf"
+    },
+    "OCEAN": {
+        "aeternity": "ct_MSJmTUgMaZquvgyPQuhkg3kyeeqS8PDVmfeCqBcWhyERmeN5i",
+        "ethereum": "0x967da4048cD07aB37855c090aAF366e4ce1b9F48"
+    },
+    "TRAC": {
+        "aeternity": "ct_27rHu4ukBiQ3vVuyRhvV7z4Q8WwuTMpVkbuyrqVuLapRz9X4E4",
+        "ethereum": "0xaa7a9ca87d3694b5755f213b5d04094b8d0f0a6f"
+    },
+    "YFI": {
+        "aeternity": "ct_dPc9Gv8SzD2CQxW8RKjcekxETP9pXJPdKYtesLnAE4dr6pLme",
+        "ethereum": "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e"
+    },
+    "BAND": {
+        "aeternity": "ct_raRqn8AbRvUQet5C2TdSsZyVNjaq7PYUxddEctdmGGVom17sC",
+        "ethereum": "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55"
+    },
+    "ANT": {
+        "aeternity": "ct_1PnNLieJHnXKX3MShkSAMX9gcNgYEhxzqYqpQcqgFp75sWNWX",
+        "ethereum": "0xa117000000f279d81a1d3cc75430faa017fa5a2e"
+    },
+    "NXM": {
+        "aeternity": "ct_2LGRKSsvujwcHvz8gSJhntA85b2gsjuDzWjErwfmAhoH7Eg59c",
+        "ethereum": "0xd7c49cee7e9188cca6ad8ff264c1da2e69d4cf3b"
+    },
+    "SSV": {
+        "aeternity": "ct_2FrusNsx898zj57D2Au3H9PQJ338TpoqMT4y5qqa4Mza5vpQqm",
+        "ethereum": "0x9d65ff81a3c488d585bbfb0bfe3c7707c7917f54"
+    }
+}
