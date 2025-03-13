@@ -1,0 +1,259 @@
+@compiler >= 6
+
+include "Option.aes"
+include "String.aes"
+include "List.aes"
+include "Pair.aes"
+
+contract interface FungibleTokenFullInterface =
+
+    entrypoint aex9_extensions               : ()                      => list(string)
+    entrypoint total_supply                  : ()                      => int
+    entrypoint owner                         : ()                      => address
+    entrypoint balances                      : ()                      => map(address, int)
+    entrypoint balance                       : (address)               => option(int)
+    stateful entrypoint transfer             : (address, int)          => unit
+    entrypoint allowance_for_caller          : (address)               => option(int)
+    stateful entrypoint transfer_allowance   : (address, address, int) => unit
+    stateful entrypoint create_allowance     : (address, int)          => unit
+    stateful entrypoint change_allowance     : (address, int)          => unit
+    stateful entrypoint reset_allowance      : (address)               => unit
+    stateful entrypoint burn                 : (int)                   => unit
+    stateful entrypoint mint                 : (address, int)          => unit
+    stateful entrypoint swap                 : ()                      => unit
+    stateful entrypoint change_owner         : (address)               => unit
+    stateful entrypoint confirm_new_owner    : ()                      => unit
+    entrypoint check_swap                    : (address)               => int
+    entrypoint swapped                       : ()                      => map(address, int)
+
+contract Bridge =
+
+    // This defines the state of type record encapsulating the contract's mutable state
+    record state =
+        {
+            assets              : map(bytes(20), FungibleTokenFullInterface),
+            native_eth          : native_asset,
+            native_ae           : native_asset,
+            out_actions         : map((address * int), out_action),
+            nonces              : map(address, int),
+            in_actions          : map((bytes(20) * int), in_action),
+            owner               : address,
+            pending_owner       : option(address),
+            is_enabled          : bool,
+            signers_threshold   : int,
+            signers             : list(bytes(20)) }
+
+    datatype status = InProgress | Processed | Failed
+
+    let bridgeAssetActionType : int = 0
+    let bridgeNativeEthActionType : int = 1
+    let bridgeAeActionType : int = 2
+
+    record native_asset =
+        {
+            eth_addr: bytes(20),
+            underlying_token: FungibleTokenFullInterface
+        }
+    
+    record out_action =
+        {
+            asset: bytes(20),
+            sender: address,
+            destination: bytes(20),
+            amount: int,
+            action_type: int,
+            nonce: int
+        }
+
+
+    record in_action =
+        {
+            signers: list(bytes(20)),
+            status: status
+        }
+
+    stateful entrypoint init(assets : map(bytes(20), FungibleTokenFullInterface), native_ae : native_asset, native_eth : native_asset, owner: option(address)) =
+        {
+            assets                  = assets,
+            native_ae               = native_ae,
+            native_eth              = native_eth,
+            out_actions             = {},
+            nonces                  = {},
+            in_actions              = {},
+            owner                   = Option.default(Call.caller, owner),
+            is_enabled              = true,
+            pending_owner           = None,
+            signers_threshold       = 1,
+            signers                 = [] }
+
+    stateful entrypoint set_threshold(threshold: int) =
+        require(threshold > 0, "INVALID_THREASHOLD")
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        // Update threshold
+        put(state{ signers_threshold = threshold })
+
+    stateful entrypoint add_signer(signer: bytes(20)) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        // The signer must not be in the list of actual signers
+        require(!List.contains(signer, state.signers), "SIGNER_ALREADY_EXISTS")
+        // Add signer to the list
+        put(state{ signers = List.insert_at(0, signer, state.signers) })
+
+    stateful entrypoint remove_signer(signer: bytes(20)) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        // The signer must be in the list of actual signers
+        require(List.contains(signer, state.signers), "SIGNER_DOES_NOT_EXISTS")
+        // Remove signer from the list
+        put(state{ signers = List.filter((p) => p != signer, state.signers) })
+
+    stateful entrypoint change_owner(new_owner: address) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        // Set pending owner
+        put(state{ pending_owner = Some(new_owner) })
+
+    stateful entrypoint confirm_new_owner() =
+        // Only the pending owner can call this entrypoint
+        require(Some(Call.caller) == state.pending_owner, "NOT_PENDING_OWNER")
+        // Replace owner with pending owner
+        put(state{ owner = Call.caller, pending_owner = None })
+
+    stateful entrypoint change_asset_owner((asset, new_owner): bytes(20) * address) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        // The asset must be known
+        if (asset == state.native_eth.eth_addr)
+            state.native_eth.underlying_token.change_owner(new_owner)
+        elif (Map.member(asset, state.assets)) 
+            state.assets[asset].change_owner(new_owner)
+        else
+            require(false, "UNKNOWN_ASSET")
+
+    stateful entrypoint confirm_asset_owner(asset: bytes(20)) =
+        // The asset must be known
+        if (asset == state.native_eth.eth_addr)
+            state.native_eth.underlying_token.confirm_new_owner()
+        elif (Map.member(asset, state.assets)) 
+            state.assets[asset].confirm_new_owner()
+        else
+            require(false, "UNKNOWN_ASSET")
+    
+    stateful entrypoint update_native_ae((asset, token): bytes(20) * FungibleTokenFullInterface) =
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        let native_ae = { eth_addr = asset, underlying_token = token }
+
+        put(state{ native_ae = native_ae })
+
+    stateful entrypoint update_native_eth((asset, token): bytes(20) * FungibleTokenFullInterface) =
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        let native_eth = { eth_addr = asset, underlying_token = token }
+
+        put(state{ native_eth = native_eth })
+
+    stateful entrypoint add_asset(eth_asset: bytes(20), asset: FungibleTokenFullInterface) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        require(!Map.member(eth_asset, state.assets), "ASSET_ALREADY_EXISTS")
+        // Add asset to the list
+        put(state{ assets[eth_asset] = asset })
+
+    stateful entrypoint remove_asset(asset: bytes(20)) =
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        require(Map.member(asset, state.assets), "ASSET_DOES_NOT_EXISTS")
+        // Remove asset from the list
+        put(state{ assets = Map.delete(asset, state.assets) })
+    
+    stateful entrypoint disable() = 
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        put(state{ is_enabled = false })
+
+    stateful entrypoint enable() = 
+        // Only the owner can call this entrypoint
+        require(state.owner == Call.caller, "NOT_AUTHORIZED")
+        put(state{ is_enabled = true })
+
+    payable stateful entrypoint bridge_out(asset: bytes(20), destination: bytes(20), amount: int, action_type: int) =
+        // The amount must not be zero
+        require(amount != 0, "ZERO_AMOUNT")
+        require(action_type < 3, "INVALID_ACTION")
+        require(state.is_enabled, "BRIDGING_DISABLED")
+
+        let nonce = Map.lookup_default(Call.caller, state.nonces, 0)
+        if (action_type == 0)
+            // The asset must be known
+            require(Map.member(asset, state.assets), "UNKNOWN_ASSET")
+            // Transfer tokens to the contract and then burn them
+            state.assets[asset].transfer_allowance(Call.caller, Contract.address, amount)
+            state.assets[asset].burn(amount)
+        elif (action_type == 1) // aeEth bridge
+            require(asset == state.native_eth.eth_addr, "INVALID_ASSET")
+            state.native_eth.underlying_token.transfer_allowance(Call.caller, Contract.address, amount)
+            state.native_eth.underlying_token.burn(amount)
+        else
+            require(asset == state.native_ae.eth_addr, "INVALID_ASSET")
+            require(amount == Call.value, "INVALID_AMOUNT")
+
+        // Add outgoing action (Aeternity to Ethereum)
+        put(state{ 
+            out_actions[(Call.caller, nonce)] = {
+                asset = asset,
+                sender = Call.caller,
+                destination = destination,
+                amount = amount,
+                action_type = action_type,
+                nonce = nonce
+            },
+            nonces[Call.caller] = nonce + 1 })
+
+    stateful entrypoint bridge_in(sender: bytes(20), nonce: int, asset: bytes(20), destination: address, amount: int, action_type: int, signatures: list(bytes(65))) =
+        require(action_type < 3, "INVALID_ACTION")
+
+        // Set "InProgress" status if action does not exist
+        if (!Map.member((sender, nonce), state.in_actions))
+            put(state{ in_actions[(sender, nonce)] = { status = InProgress, signers = [] } })
+
+        // Hash action data and store submission
+        let action_hash = Crypto.blake2b((sender, nonce, asset, destination, amount, action_type))
+
+        List.foreach(signatures, (sig) => check_signature(sender, nonce, sig, action_hash))
+
+        // Mint tokens and set action as processed
+        // The action must be in progress
+        let in_progress = state.in_actions[(sender, nonce)].status == InProgress
+        if (in_progress && List.length(state.in_actions[(sender, nonce)].signers) >= state.signers_threshold)
+            if (action_type == bridgeAssetActionType)
+                require(Map.member(asset, state.assets), "UNKNOWN_ASSET")
+                state.assets[asset].mint(destination, amount)
+            elif (action_type == bridgeNativeEthActionType)
+                require(asset == state.native_eth.eth_addr, "UNKNOWN_ASSET")
+                state.native_eth.underlying_token.mint(destination, amount)
+            elif (action_type == bridgeAeActionType)
+                require(asset == state.native_ae.eth_addr, "UNKNOWN_ASSET")
+                Chain.spend(destination, amount)
+            put(state{ in_actions[(sender, nonce)].status = Processed })
+
+    stateful function check_signature(sender: bytes(20), nonce: int, sig: bytes(65), message_hash: hash) =
+        let maybe_address = Crypto.ecrecover_secp256k1(message_hash, sig)
+        require(Option.is_some(maybe_address), "INVALID_SIGNATURE")
+        let eth_address = Option.force(maybe_address)
+        require(List.contains(eth_address, state.signers), "NOT_A_SIGNER")
+        require(!List.contains(eth_address, state.in_actions[(sender, nonce)].signers), "ALREADY_SIGNED")
+        // Add signer to the list
+        put(state{ in_actions[(sender, nonce)].signers = List.insert_at(0, eth_address, state.in_actions[(sender, nonce)].signers) })
+
+    entrypoint owner() = state.owner
+    entrypoint out_action(sender: address, nonce: int): out_action = state.out_actions[(sender, nonce)]
+    entrypoint in_action(sender: bytes(20), nonce: int): in_action = state.in_actions[(sender, nonce)]
+    entrypoint assets(): map(bytes(20), FungibleTokenFullInterface) = state.assets
+    entrypoint native_eth(): FungibleTokenFullInterface = state.native_eth.underlying_token
+    entrypoint native_ae(): FungibleTokenFullInterface = state.native_ae.underlying_token
+    entrypoint asset(eth_address: bytes(20)): FungibleTokenFullInterface = state.assets[eth_address]
+    entrypoint in_action_status(sender: bytes(20), nonce: int): status = state.in_actions[(sender, nonce)].status
+    entrypoint is_enabled(): bool = state.is_enabled
+    entrypoint nonce(sender: address): int = state.nonces[sender]
+    entrypoint signers(): list(bytes(20)) = state.signers

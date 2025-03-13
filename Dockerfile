@@ -11,19 +11,13 @@ COPY . /app/
 ARG RUN_ENV
 ARG NETWORK=sepolia
 
-WORKDIR /app/frontend
+# WORKDIR /app
 
-RUN yarn install
-RUN yarn prepare-deployment $NETWORK
-RUN yarn build
+# RUN npm install
+# RUN npm run compile-evm
+# RUN npm run compile-ae
 
-###################################
+WORKDIR /app/acurast/signer
 
-FROM nginx:1-alpine
-
-COPY --from=build /app/frontend/build /usr/share/nginx/html
-COPY frontend/nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 80
-
-CMD [ "nginx", "-g", "daemon off;" ]
+RUN npm install
+RUN npm run build

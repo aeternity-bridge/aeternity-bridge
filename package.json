@@ -5,11 +5,16 @@
 	"scripts": {
 		"test": "mocha ./test/**/*.js --timeout 0 --exit",
 		"compile-evm": "hardhat compile",
-		"deploy:prod": "hardhat run deploy/deploy.ts --network mainnet",
-		"deploy:dev": "hardhat run deploy/deploy.ts --network sepolia",
-		"update-processors:dev": "hardhat run deploy/update-processors.ts --network sepolia",
-		"update-processors:prod": "hardhat run deploy/update-processors.ts --network mainnet",
-		"migrate": "hardhat run deploy/migrate.ts --network mainnet"
+		"compile-ae": "hardhat run scripts/compile-ae.ts",
+		"deploy:prod": "hardhat run scripts/deploy.ts --network mainnet",
+		"deploy:dev": "hardhat run scripts/deploy.ts --network sepolia",
+		"update-processors:dev": "hardhat run scripts/update-processors.ts --network sepolia",
+		"update-processors:prod": "hardhat run scripts/update-processors.ts --network mainnet",
+		"ae-bridge-out": "hardhat run scripts/ae-bridge-out.ts --network sepolia",
+		"ae-bridge-in": "hardhat run scripts/ae-bridge-in.ts --network sepolia",
+		"eth-bridge-out": "hardhat run scripts/eth-bridge-out.ts --network sepolia",
+		"eth-bridge-in": "hardhat run scripts/eth-bridge-in.ts --network sepolia",
+		"migrate": "hardhat run scripts/migrate.ts --network mainnet"
 	},
 	"dependencies": {
 		"@aeternity/aepp-sdk": "^13.3.2",

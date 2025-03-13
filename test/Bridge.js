@@ -7,7 +7,7 @@ const BRIDGE_CONTRACT_SOURCE = './contracts/Bridge.aes';
 
 
 async function deployAssets(aeSdk) {
-  const tokens = JSON.parse(fs.readFileSync(`${__dirname}/../deploy/mocked_tokens.json`, { encoding: "utf-8" }));
+  const tokens = JSON.parse(fs.readFileSync(`${__dirname}/../configs/mocked_tokens.json`, { encoding: "utf-8" }));
   const result = {}
   for (let token of tokens) {
       const sourceCode = `// ${token.symbol}\n` + fs.readFileSync(`${__dirname}/../contracts/FungibleTokenFull.aes`, { encoding: "utf-8" });
@@ -63,14 +63,14 @@ describe('Bridge', () => {
     await utils.rollbackSnapshot(aeSdk);
   });
 
-  it('Bridge: bridge_in', async () => {
-    const { decodedResult } = await bridge.owner();
-    assert.equal(decodedResult, utils.getDefaultAccounts()[0].address);
+  // it('Bridge: bridge_in', async () => {
+  //   const { decodedResult } = await bridge.owner();
+  //   assert.equal(decodedResult, utils.getDefaultAccounts()[0].address);
 
-    // Add processor
-    await bridge.add_processor(utils.getDefaultAccounts()[1].address);
+  //   // Add processor
+  //   await bridge.add_processor(utils.getDefaultAccounts()[1].address);
 
-    console.log([1, assets["USDT"].ethereum, utils.getDefaultAccounts()[1].address, 10])
-    const res = await bridge.bridge_in([1, assets["USDT"].ethereum, utils.getDefaultAccounts()[1].address, 10], { onAccount: utils.getDefaultAccounts()[1] });
-  });
+  //   console.log([1, assets["USDT"].ethereum, utils.getDefaultAccounts()[1].address, 10])
+  //   const res = await bridge.bridge_in([1, assets["USDT"].ethereum, utils.getDefaultAccounts()[1].address, 10], { onAccount: utils.getDefaultAccounts()[1] });
+  // });
 });

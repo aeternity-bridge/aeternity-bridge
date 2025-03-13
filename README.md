@@ -31,7 +31,7 @@ When registering the job ob Acurast, you are required to specify `1000` in the s
 
 ## Update processors used in the deployment
 
-Modify file [deploy/processors.json](./deploy/processors.json) to add new processors.
+Modify file [configs/processors.json](./configs/processors.json) to add new processors.
 
 ## Start frontend
 
